@@ -1,7 +1,11 @@
-The shader comes from this website
+Guthub Link:https://github.com/Wex-Zhang/My_game_assignment?tab=readme-ov-file#readme
 
-https://zhuanlan.zhihu.com/p/165324566
 
-the reference image
 
-https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.O32eMVJgxom0s5VwJ_lzmwHaEv%26pid%3DApi&f=1&ipt=e8ed648b25e40c0e8e47b0fd79198bc1349af1242d1b49e5db5c41896653fb51&ipo=images
+
+From the internet the reference image:https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.O32eMVJgxom0s5VwJ_lzmwHaEv%26pid%3DApi&f=1&ipt=e8ed648b25e40c0e8e47b0fd79198bc1349af1242d1b49e5db5c41896653fb51&ipo=images 
+
+To simulate the meteor shower, firstly I created a particle system. I then adjust the particle system's position and direction to make it like a meteor shower in the sky. I then change the gravity, emitter speed and the parcile's life span, which gives the meteor correct physical property. And then to make the meteor more interesting, I created a shader and used this shader to create a trailing tail for the meteor. I'm very happy with the effect and the blue track makes the meteor more realistic! 
+
+I was going to write my own shader to depict the starry sky behind it, but I found a better one with auroras online. The shader comes from this website https://zhuanlan.zhihu.com/p/165324566.
+This code firstly analyze the the vertical position of texture, it then calculates different color weights and blends these coluors, which simulate the sky's color transition from the horizon to the sky. Then the code create star noise module to create star effect. Based on the cordinate, the StarAuroraHash function randomly generate star intensities. The StarNoise function then use that StarAuroHash Function to output black and white gradient transition rect grid. The colours in each grid are then processed to keep the points within the threshold range, which create the night sky full of star. It also add a starspeed function to adjust the star blink speed, which help create a night sky texture. The CloudHash function is then added to generate cloud noise pattern, and the CloudNoise function is used to generates noise based on position and flow, simulating cloud movement. Finally, the Cloudfbm function combines multiple scales of noise to create layered cloud textures. Then a piece of complex Aurora and moutain generation code is implemented, I try to understand but I think this beyond my ability as a shader beginners
